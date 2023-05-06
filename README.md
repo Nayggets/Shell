@@ -4,7 +4,7 @@
 Simple shell that can manage command execution, piping of commands, and background execution.
 
 
-### Here's a diagram depicting the steps from command line to process execution:
+### Diagram depicting the steps from command line to process execution:
 
 ![DIAGRAMME](/ressources/ParsingCommandStep.png "ParsingCommandStep")
 
@@ -28,14 +28,22 @@ First, the user inputs a command line. Next, the lexer tokenizes the raw command
 
 
 ## About complexity 
-launch_process --> 3 * O(n)
-
++ launch_process --> 3 * O(n)
++ setup_process --> O(n)
++ read_command  --> O(n)
 ## About memory
 
-for run and exec simple command(like cat Makefile) the program use approximately 20034 bytes for 40 allocs
+When running and executing a simple command, such as "cat Makefile", the program employs approximately 20,034 bytes of memory through 40 allocations.
 
-for run and exec a more huge command(like cat Makefile | grep e | grep rm) the program use approximately 20243 bytes for 70 alloc
+When running and executing a more complex command, such as "cat Makefile | grep e | grep rm", the program employs approximately 20,243 bytes of memory through 70 allocations.
 
 ### Valgrind check : 
 
 According to Valgrind, the program does not have any memory leaks. All memory allocated in the heap is properly freed.
+
+## About Tools use in this project
+
+IDE : Visual studio code 
+Debugger : gdb
+Memory check : Valgrind 
+Compiler : mingw 
