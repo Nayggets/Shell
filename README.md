@@ -3,7 +3,7 @@
 Simple Shell that manage execution, pipe ,background execution
 
 
-### diagramme to show all step btw the command line and process(es) execution
+### Here's a diagram depicting the steps from command line to process execution:
 
 ![DIAGRAMME](/ressources/ParsingCommandStep.png "ParsingCommandStep")
 
