@@ -28,10 +28,10 @@ First, the user inputs a command line. Next, the lexer tokenizes the raw command
 
 
 ## About complexity 
-+ launch_process --> 3 * O(n)
++ launch_process --> 2 * O(n)
 + setup_process --> O(n)
 + read_command  --> O(n)
-+ 
+
 ## About memory
 
 When running and executing a simple command, such as "cat Makefile", the program employs approximately 20,034 bytes of memory through 40 allocations.
@@ -48,7 +48,7 @@ According to Valgrind memory check, the program does not have any memory leaks. 
 + Debugger : gdb and Visual studio code Debugger (70/30)
 + Memory check : Valgrind 
 + Compiler : mingw 
-+ OS : Ubuntu(64bit)
++ Operating System : Ubuntu(64bit)
 + Tools of Updating and Versionning : Git
 + Diagram : Excalidraw
 

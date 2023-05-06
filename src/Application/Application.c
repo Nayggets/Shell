@@ -24,9 +24,7 @@ void run()
             Init_command_parser(tokens,j);
             command_t** commands = parse_command();
             int i = 0;
-            printf("Parsing of Process :\n\n");
             while(commands[i] != NULL){
-                print_command(commands[i]);
                 i++;
             }
             
@@ -51,7 +49,6 @@ void free_all(token_t** tokens, command_t** commands, process_t** processes)
     }
 
     free(tokens);
-    printf("COUCOU");
     fflush(stdout);
     for(int i = 0 ; commands[i] != NULL; i++){
         for(int j = 0 ; commands[i]->argument[j] != NULL ; j++){

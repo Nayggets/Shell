@@ -1,9 +1,7 @@
 #include "executor.h"
 void launch_process(process_t** process,int nb)
 {
-    for(int i = 0 ; i < nb ; i++){
-        printf("process %s :  \npipeInput : %i \n pipeOutput : %i\n",process[i]->command->name,process[i]->pipefdInput,process[i]->pipefdOutput);
-    }
+
     fflush(stdout);
     int pid[nb];
     int uniquePid = 0;
