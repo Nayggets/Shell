@@ -57,7 +57,7 @@ token_t** decomposed_command(char* com)
         }
     }
     all_token[numberArgs] = NULL;
-    if(strcmp(all_token[0]->name,"exit")){
+    if(strcmp(all_token[0]->name,"exit") == 0){
         exit(-1);
     }
     return all_token;
