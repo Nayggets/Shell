@@ -1,6 +1,7 @@
 # Shell
 
-Simple Shell that manage execution, pipe ,background execution
+## Description
+Simple shell that can manage command execution, piping of commands, and background execution.
 
 
 ### Here's a diagram depicting the steps from command line to process execution:
