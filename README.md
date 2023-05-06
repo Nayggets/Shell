@@ -33,6 +33,7 @@ launch_process --> 3 * O(n)
 ## About memory
 
 for a run and exec simple command(like cat Makefile) the program use approximately 20034 bytes for 40 allocs
+
 for a run and exec a more huge command(like cat Makefile | grep e | grep rm) the program use approximately 20243 bytes for 70 alloc
 
 ### Valgrind check : 
