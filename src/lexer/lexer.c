@@ -16,7 +16,10 @@ void lexer_error(token_t* token,int index, const char* msg, ...){
 token_t** decomposed_command(char* com)
 {
     char** decomposed_arg = split_command_args(com,strlen(com)-1);
-    token_t** all_token = malloc(sizeof(token_t*) * numberArgs );
+    if(decomposed_arg == NULL){
+        return NULL;
+    }
+    token_t** all_token = malloc(sizeof(token_t*) * numberArgs +1);
     printf("%i", numberArgs);
     int is_argument = 0;
     int already_a_symbol = 0;
@@ -58,8 +61,19 @@ token_t** decomposed_command(char* com)
     }
     all_token[numberArgs] = NULL;
     if(strcmp(all_token[0]->name,"exit") == 0){
+        for(int i = 0 ; i < numberArgs ; i++){
+            free(all_token[i]->name);
+            free(all_token[i]);
+            free(decomposed_arg[i]);
+        }
+        free(all_token);
+        free(decomposed_arg);
         exit(-1);
     }
+    for(int i = 0 ; i < numberArgs ; i++){
+        free(decomposed_arg[i]);
+    }
+    free(decomposed_arg);
     return all_token;
 }
 
@@ -88,12 +102,17 @@ void update_number_word(char* command,int commandSize)
             }
         }
     }
+    printf("%i",numberArgs);
+    fflush(stdout);
 }
 
 
 char** split_command_args(char* command,int commandSize)
 {
     update_number_word(command,commandSize);
+    if(numberArgs == 0){
+        return NULL;
+    }
     /* recuperation du nombre d'argument et allocation des tableau*/
     int* sizePerArg = malloc(sizeof(int) * numberArgs + 1);
     char** commandArgs = malloc(sizeof(char*) * numberArgs + 1);
@@ -156,6 +175,7 @@ char** split_command_args(char* command,int commandSize)
         sizeCommand = 0;
         currentArg++;
     }
+
     free(sizePerArg);
     commandArgs[currentArg] = NULL;//on fixe la fin du tableau de chaine
     return commandArgs; 

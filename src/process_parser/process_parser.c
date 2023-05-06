@@ -1,7 +1,7 @@
 #include "process_parser.h"
 process_t** setup_process(command_t** commands,int size)
 {
-    process_t** processes = malloc(sizeof(process_t*) * size + 1);
+    process_t** processes = malloc(sizeof(process_t*) * size  + 1);
     int i = 0;
 
     int check = 0;
@@ -41,5 +41,6 @@ process_t** setup_process(command_t** commands,int size)
         i++;
         process = NULL;
     }
+    processes[size] = NULL;
     return processes;
 }

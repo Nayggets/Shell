@@ -25,7 +25,7 @@ command_t** parse_command()
 
     }
 
-    command_t** commands = malloc(sizeof(command_t*) * numbercommand+1);
+    command_t** commands = malloc(sizeof(command_t*) * numbercommand + 1);
 
 
     for(int i = 0 ; i < numbercommand ; i++){
@@ -63,22 +63,23 @@ command_t* parse_simple_command(int* index)
 
     char** parameter = malloc(sizeof(char*) * j+1);
 
-    char* name;
+    char* name ;
 
     int first = 1;
     int i = 0;
     j = 0;
     while(*index != limit && token_of_command[*index]->type != 2 && token_of_command[*index]->type != 3){
         if(first == 1){
+            name = malloc(sizeof(char) * strlen(token_of_command[*index]->name));
             name = strdup(token_of_command[*index]->name);
             parameter[j] = malloc(sizeof(char) * strlen(token_of_command[*index]->name));
-            parameter[j] = strdup(token_of_command[*index]->name);
+            parameter[j] = strcpy(parameter[j],token_of_command[*index]->name);
             j++;
             first = 0;
         }
         else{
             parameter[j] = malloc(sizeof(char) * strlen(token_of_command[*index]->name));
-            parameter[j] = strdup(token_of_command[*index]->name);
+            parameter[j] = strcpy(parameter[j],token_of_command[*index]->name);
             j++;
         }
 
@@ -95,7 +96,9 @@ command_t* parse_simple_command(int* index)
         backgrounded = 1;
     }
 
-    return create_command_full(name,parameter,piped,backgrounded);
+    command_t* command = create_command_full(name,parameter,piped,backgrounded);
+
+    return command;
 }
 
 

@@ -5,7 +5,7 @@ void launch_process(process_t** process,int nb)
         printf("process %s :  \npipeInput : %i \n pipeOutput : %i\n",process[i]->command->name,process[i]->pipefdInput,process[i]->pipefdOutput);
     }
     fflush(stdout);
-    int* pid = malloc(sizeof(int) * nb);
+    int pid[nb];
     int uniquePid = 0;
     for(int i = 0 ; i < nb ; i++){
         uniquePid = fork();

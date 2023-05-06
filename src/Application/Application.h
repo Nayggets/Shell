@@ -5,7 +5,7 @@
 #include "../reader/reader.h"
 #include "../lexer/lexer.h"
 #include "../executor/executor.h"
-
+#include <unistd.h>
 void run();
 
 #endif

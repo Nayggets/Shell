@@ -8,6 +8,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-char* read_command();
+int read_command(char* command);
 
 #endif

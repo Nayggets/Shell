@@ -16,10 +16,25 @@ First, the user inputs a command line. Next, the lexer tokenizes the raw command
 * [x] command_parser
 * [x] process_parser 
 * [x] executor
-* [ ]  Application
+* [x] Application
 * [x] Manage pipe left pipe right and double pipe
 * [x] Manage background execution
 * [ ] Navigate with cd 
 * [ ] Coloration Data
 * [ ] Add a module to open a new windows like gnome-terminal
-* [ ] Display all information for the user (current directory , User name, Machine name)
+* [x] Display all information for the user (current directory , User name, Machine name)
+* [ ] autoCompletion Command
+
+
+
+## About complexity 
+launch_process --> 3 * O(n)
+
+## About memory
+
+for a run and exec simple command(like cat Makefile) the program use approximately 20034 bytes for 40 allocs
+for a run and exec a more huge command(like cat Makefile | grep e | grep rm) the program use approximately 20243 bytes for 70 alloc
+
+### Valgrind check : 
+
+According to Valgrind, the program does not have any memory leaks. All memory allocated in the heap is properly freed.
