@@ -9,9 +9,9 @@ Simple Shell that manage execution, pipe ,background execution
 
 
 ## Main TODO:
-+ [x] Manage pipe left pipe right and double pipe
-+ [x] Manage background execution
-+ [ ] Navigate with cd 
-+ [ ] Coloration Data
-+ [ ] Add a module to open a new windows like gnome-terminal
-+ [ ] Display all information for the user (current directory , )
+* [x] Manage pipe left pipe right and double pipe
+* [x] Manage background execution
+* [ ] Navigate with cd 
+* [ ] Coloration Data
+* [ ] Add a module to open a new windows like gnome-terminal
+* [ ] Display all information for the user (current directory , )
