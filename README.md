@@ -15,7 +15,7 @@ First, the user inputs a command line. Next, the lexer tokenizes the raw command
 * [x] command_parser
 * [x] process_parser 
 * [x] executor
-* []  Application
+* [ ]  Application
 * [x] Manage pipe left pipe right and double pipe
 * [x] Manage background execution
 * [ ] Navigate with cd 
