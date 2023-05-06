@@ -14,4 +14,4 @@ Simple Shell that manage execution, pipe ,background execution
 * [ ] Navigate with cd 
 * [ ] Coloration Data
 * [ ] Add a module to open a new windows like gnome-terminal
-* [ ] Display all information for the user (current directory , )
+* [ ] Display all information for the user (current directory , User name, Machine name)
