@@ -43,7 +43,7 @@ According to Valgrind, the program does not have any memory leaks. All memory al
 
 ## About Tools use in this project
 
-IDE : Visual studio code 
-Debugger : gdb
-Memory check : Valgrind 
-Compiler : mingw 
++ IDE : Visual studio code 
++ Debugger : gdb
++ Memory check : Valgrind 
++ Compiler : mingw 
