@@ -6,6 +6,7 @@
 #include <fcntl.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+
 void launch_process(process_t** command,int nb);
 
 

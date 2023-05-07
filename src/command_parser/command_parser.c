@@ -3,15 +3,15 @@
 
 
 
-
+//init the parser
 void Init_command_parser(token_t** tokens, int size)
 {
     token_of_command = tokens;
-
     size_of = size;
 }
 
 
+//Parse all the token in command
 command_t** parse_command()
 {
     int index = 0;
@@ -39,6 +39,9 @@ command_t** parse_command()
 
 
 
+//Parse a certain number of token into a command 
+// exemple if all token is like that 0.cat 1.Makefile 2.| 3.grep 4.e
+//the return command will be cat Makefile with the mask pipe_right and no background
 command_t* parse_simple_command(int* index)
 {
 
@@ -96,7 +99,7 @@ command_t* parse_simple_command(int* index)
         backgrounded = 1;
     }
 
-    command_t* command = create_command_full(name,parameter,piped,backgrounded);
+    command_t* command = create_command(name,parameter,piped,backgrounded);
 
     return command;
 }

@@ -14,6 +14,7 @@ typedef struct command
 
 } command_t;
 
+//masking for pipe 
 enum pipe
 {
     PIPED_LEFT = 0b00000001,
@@ -21,8 +22,8 @@ enum pipe
 };
 
 
-command_t* create_command();
-command_t* create_command_full(char* _name,char** _argument,char _piped , int _backgrounded);
+command_t* create_command(char* _name,char** _argument,char _piped , int _backgrounded);
+void free_command(command_t* command);
 void print_command(command_t* command);
 
 #endif

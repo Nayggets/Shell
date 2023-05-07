@@ -1,8 +1,8 @@
 #include "executor.h"
+//Close and dup good entry for process and launch it bg or fg
 void launch_process(process_t** process,int nb)
 {
 
-    fflush(stdout);
     int pid[nb];
     int uniquePid = 0;
     for(int i = 0 ; i < nb ; i++){

@@ -5,6 +5,7 @@
 #include "../reader/reader.h"
 #include "../lexer/lexer.h"
 #include "../executor/executor.h"
+#include "../lexer/token/token.h"
 #include <unistd.h>
 void run();
 

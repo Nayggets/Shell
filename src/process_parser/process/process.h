@@ -7,4 +7,6 @@ typedef struct process{
     int pipefdInput;
 
 }process_t;
+process_t* create_process(command_t* _command);
+
 #endif

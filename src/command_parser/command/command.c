@@ -1,17 +1,9 @@
 #include "command.h"
 
-command_t* create_command()
-{
-    command_t* command = malloc(sizeof(command_t));
-    command->name = NULL;
-    command->argument = NULL;
-    command->piped = 0;
-    command->isBackground = 0;
-    return command;
-}
 
 
-command_t* create_command_full(char* _name,char** _argument,char _piped , int _backgrounded)
+//alloc and return the command filled
+command_t* create_command(char* _name,char** _argument,char _piped , int _backgrounded)
 {
     command_t* command = malloc(sizeof(command_t));
     command->name = _name;
@@ -21,8 +13,17 @@ command_t* create_command_full(char* _name,char** _argument,char _piped , int _b
     return command;
 }
 
+void free_command(command_t* command)
+{
+    for(int j = 0 ; command->argument[j] != NULL ; j++){
+        free(command->argument[j]);
+    }
+    free(command->argument);
+    free(command->name);
+    free(command);
+}
 
-
+//print name arguments pipe state and background state
 void print_command(command_t* command)
 {
     printf("commandname --> %s \n",command->name);

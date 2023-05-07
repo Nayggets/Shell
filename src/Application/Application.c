@@ -4,9 +4,9 @@ void display_user_credentials();
 void free_all(token_t** tokens, command_t** commands, process_t** processes);
 
 
-void run()
+//Simply run the terminal
+void run() 
 {
-    int check;
     char buffer[4096];
     while(1)
     {
@@ -15,6 +15,9 @@ void run()
             display_user_credentials();
         }
         token_t** tokens = decomposed_command(buffer);
+        if(strcmp(tokens[0]->name,"cd") == 0){
+            
+        }
         if(tokens != NULL){
             int j = 0;
             while(tokens[j] != NULL){
@@ -41,32 +44,27 @@ void run()
 
 }
 
+//Free all the memory allocated for the execution of the command line
 void free_all(token_t** tokens, command_t** commands, process_t** processes)
 {
+    /*----------Token--------------*/
     for(int i = 0 ; tokens[i] != NULL; i++){
-        free(tokens[i]->name);
-        free(tokens[i]);
+        free_token(tokens[i]);
     }
-
     free(tokens);
-    fflush(stdout);
+
+    /*---------------Command-------------*/
     for(int i = 0 ; commands[i] != NULL; i++){
-        for(int j = 0 ; commands[i]->argument[j] != NULL ; j++){
-            free(commands[i]->argument[j]);
-        }
-        free(commands[i]->argument);
-        free(commands[i]->name);
-        free(commands[i]);
+        free_command(commands[i]);
     }
-
-
-        free(commands);
+    free(commands);
+    /*-------------Process-----------*/
     for(int i = 0 ; processes[i] != NULL; i++){
         free(processes[i]);
     }
-
-        free(processes);
+    free(processes);
 }
+
 
 void display_user_credentials()
 {

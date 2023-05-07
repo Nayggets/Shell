@@ -7,19 +7,15 @@ process_t** setup_process(command_t** commands,int size)
     int check = 0;
     int pipefd[2];
 
-    process_t* process;
     while(i < size){
 
+        processes[i] = create_process(commands[i]);
 
-        process = malloc(sizeof(process_t));
-        process->command = commands[i];
-        process->pipefdInput = -1;
-        process-> pipefdOutput = -1;
 
 
         if(commands[i]->piped & PIPED_LEFT){
             printf("%i Hello 2 \n",i);
-            process->pipefdInput = pipefd[0];
+            processes[i]->pipefdInput = pipefd[0];
             
         }
 
@@ -32,14 +28,13 @@ process_t** setup_process(command_t** commands,int size)
             printf("%i pipe 0 \n", pipefd[0]);
             printf("%i pipe 1 \n", pipefd[1]);
 
-            process->pipefdOutput = pipefd[1];
+            processes[i]->pipefdOutput = pipefd[1];
             if(check == 1){
                 exit(-1);
             }
         }
-        processes[i] = process;
+
         i++;
-        process = NULL;
     }
     processes[size] = NULL;
     return processes;

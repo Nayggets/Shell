@@ -4,6 +4,7 @@
 char** split_command_args(char* command,int commandSize);
 int numberArgs = 0;
 
+//For error that can occur with background and pipe 
 void lexer_error(token_t* token,int index, const char* msg, ...){
     va_list args;
     va_start(args,msg);
@@ -77,6 +78,8 @@ token_t** decomposed_command(char* com)
     return all_token;
 }
 
+//update the number of word in the command 
+//also manage chain 
 void update_number_word(char* command,int commandSize)
 {
     numberArgs = 0;
@@ -107,20 +110,22 @@ void update_number_word(char* command,int commandSize)
 }
 
 
+//Split the command line into multiple arg(char*)
+// also manage "" and '' 
 char** split_command_args(char* command,int commandSize)
 {
     update_number_word(command,commandSize);
     if(numberArgs == 0){
         return NULL;
     }
-    /* recuperation du nombre d'argument et allocation des tableau*/
+    /* Updating number of word and allocate memory to store size of all arg and all arg*/
     int* sizePerArg = malloc(sizeof(int) * numberArgs + 1);
     char** commandArgs = malloc(sizeof(char*) * numberArgs + 1);
 
     int i = 0;
     int currentArg = 0;
     int sizeCommand = 0;
-    while(i-1 < commandSize){ // on va recuperer et stocker la taille nescessaire pour chaque chaine de caracteres de chaque argument
+    while(i-1 < commandSize){ // We will retrieve and store the necessary size for each char*.
         while(command[i] == ' ' && i-1 < commandSize){
             i++;
         }
@@ -143,14 +148,14 @@ char** split_command_args(char* command,int commandSize)
         currentArg++;
         sizeCommand = 0;
     }
-    for(int i = 0 ; i < numberArgs ; i++){ //allocation des chaines par taille recuperer 
+    for(int i = 0 ; i < numberArgs ; i++){ //allocation of all char* with the size retrieve 
         commandArgs[i] = malloc(sizeof(char) * sizePerArg[i] + 1);
     }
 
     i = 0;
     sizeCommand = 0;
     currentArg = 0;
-    while(i-1 < commandSize){// on va recuperer chaque arguments caracteres par caracteres pour les stockers dans leur chaine allouer precedemment
+    while(i-1 < commandSize){//We will retrieve each argument character by character to store them in their previously allocated char*.
         while(command[i] == ' ' && i-1 < commandSize){
             i++;
         }
@@ -177,6 +182,6 @@ char** split_command_args(char* command,int commandSize)
     }
 
     free(sizePerArg);
-    commandArgs[currentArg] = NULL;//on fixe la fin du tableau de chaine
+    commandArgs[currentArg] = NULL;//we fix the end with NULL
     return commandArgs; 
 }

@@ -24,5 +24,8 @@ build_run:	build
 debug:	build 
 	gdb ./shell.elf
 
+memory-check: build
+	valgrind --show-leak-kinds=all --leak-check=full ./shell.elf  
+
 clean:
 	rm shell.elf

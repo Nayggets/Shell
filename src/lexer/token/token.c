@@ -1,5 +1,6 @@
 #include "token.h"
 
+//allocated memory for token and filled the structure
 token_t* create_token(char* name,enum token_type type)
 {
     token_t* create = malloc(sizeof(token_t));
@@ -8,6 +9,13 @@ token_t* create_token(char* name,enum token_type type)
     return create;
 }
 
+void free_token(token_t* toFree)
+{
+    free(toFree->name);
+    free(toFree);
+}
+
+//return the token type in char* for debuging or/and print 
 char* token_type(int type)
 {
     switch (type)
