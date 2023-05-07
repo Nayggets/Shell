@@ -35,19 +35,18 @@ First, the user inputs a command line. Next, the lexer tokenizes the raw command
 + read_command  --> O(n)
 
 ### command_section
-Init_command_parser  --> O(2)
-parse_command        --> O(2n)
-parse_simple_command --> O(2n)
++ Init_command_parser  --> O(2)
++ parse_command        --> O(2n)
++ parse_simple_command --> O(2n)
 ### token_section
-lexer_error         --> O(n)
-
-update_number_word  --> O(n)
-split_command_args  --> O(n²)
++ lexer_error         --> O(n)
++ update_number_word  --> O(n)
++ split_command_args  --> O(n²)
 
 ### allocation_section
-create_token    --> O(n)
-create_process  --> O(n)
-create_command  --> O(6)
++ create_token    --> O(n)
++ create_process  --> O(n)
++ create_command  --> O(6)
 ### free_section
 + free_all      --> O(n²)
 + free_token    --> O(1) 
