@@ -28,9 +28,16 @@ First, the user inputs a command line. Next, the lexer tokenizes the raw command
 
 
 ## About complexity 
+### process_section
 + launch_process --> 2 * O(n)
 + setup_process --> O(n)
+### reader_section
 + read_command  --> O(n)
+### free_section
++ free_all      --> O(n²)
++ free_token    --> 1 
++ free_process  --> O(n)
++ free_command  --> O(n)
 
 ## About memory
 
