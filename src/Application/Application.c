@@ -4,7 +4,7 @@ void display_user_credentials();
 void free_all(token_t** tokens, command_t** commands, process_t** processes);
 
 
-//Simply run the terminal
+/*Simply run the terminal using all the component of the system */
 void run() 
 {
     char buffer[4096];
@@ -31,7 +31,7 @@ void run()
                 i++;
             }
             
-            process_t** processes = setup_process(commands,i);
+            process_t** processes = parse_process(commands,i);
             launch_process(processes,i);
             fflush(stdout);
             free_all(tokens,commands,processes);
@@ -44,7 +44,7 @@ void run()
 
 }
 
-//Free all the memory allocated for the execution of the command line
+/*Free all the memory allocated for the execution of the command line */
 void free_all(token_t** tokens, command_t** commands, process_t** processes)
 {
     /*----------Token--------------*/
@@ -60,12 +60,12 @@ void free_all(token_t** tokens, command_t** commands, process_t** processes)
     free(commands);
     /*-------------Process-----------*/
     for(int i = 0 ; processes[i] != NULL; i++){
-        free(processes[i]);
+        free_process(processes[i]);
     }
     free(processes);
 }
 
-
+/*display all user information Machine, Username, PWD*/
 void display_user_credentials()
 {
     char currentDirectory[1024];
@@ -79,5 +79,5 @@ void display_user_credentials()
     
     printf("\033[1;32m%s@%s\033[0m:\033[1;34m%s\033[1;36m$",userName,machineName,currentDirectory);
     printf("\033[0m"); 
-    fflush(stdout);//flush de l'entrée standars pour affichage correcte
+    fflush(stdout);//flush of stdout for better display display
 }

@@ -1,5 +1,6 @@
 #include "process_parser.h"
-process_t** setup_process(command_t** commands,int size)
+/*Take commands from the command_parser and convert it into process that are ready to be pipe or not and launch in bg or fg*/
+process_t** parse_process(command_t** commands,int size)
 {
     process_t** processes = malloc(sizeof(process_t*) * size  + 1);
     int i = 0;

@@ -14,7 +14,7 @@ typedef struct command
 
 } command_t;
 
-//masking for pipe 
+/*masking for piping*/ 
 enum pipe
 {
     PIPED_LEFT = 0b00000001,

@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-//define all the token type the lexer can encounter
+/*define all the token type the lexer can encounter*/
 enum token_type
 {
     command,argument,piped,background

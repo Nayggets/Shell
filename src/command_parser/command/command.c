@@ -2,7 +2,7 @@
 
 
 
-//alloc and return the command filled
+/*alloc and return the command filled*/
 command_t* create_command(char* _name,char** _argument,char _piped , int _backgrounded)
 {
     command_t* command = malloc(sizeof(command_t));
@@ -13,6 +13,7 @@ command_t* create_command(char* _name,char** _argument,char _piped , int _backgr
     return command;
 }
 
+/*free the memory of the structure*/
 void free_command(command_t* command)
 {
     for(int j = 0 ; command->argument[j] != NULL ; j++){
@@ -23,7 +24,7 @@ void free_command(command_t* command)
     free(command);
 }
 
-//print name arguments pipe state and background state
+/*print name arguments pipe state and background state */
 void print_command(command_t* command)
 {
     printf("commandname --> %s \n",command->name);

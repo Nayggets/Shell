@@ -4,7 +4,7 @@
 char** split_command_args(char* command,int commandSize);
 int numberArgs = 0;
 
-//For error that can occur with background and pipe 
+/*For error that can occur with background and pipe*/ 
 void lexer_error(token_t* token,int index, const char* msg, ...){
     va_list args;
     va_start(args,msg);
@@ -78,13 +78,14 @@ token_t** decomposed_command(char* com)
     return all_token;
 }
 
-//update the number of word in the command 
-//also manage chain 
+/*update the number of word in the command 
+ *also manage chain
+ */ 
 void update_number_word(char* command,int commandSize)
 {
     numberArgs = 0;
     int i = 0;
-    while(i < commandSize){//on ce deplace d'argument en argument en ajoutant ++ a nbWord a chaque nouvelle argument en comptant que une chaine de caractères avec des "" est un seul argument.
+    while(i < commandSize){//We move from argument to argument by adding 1 to nbWord for each new argument, considering that a string with quotation marks("",'') is counted as a single argument.
         while(i < commandSize && command[i] == ' ' ){
             i++;
         }
@@ -110,8 +111,9 @@ void update_number_word(char* command,int commandSize)
 }
 
 
-//Split the command line into multiple arg(char*)
-// also manage "" and '' 
+/*Split the command line into multiple arg(char*)
+ *also manage "" and ''
+ */
 char** split_command_args(char* command,int commandSize)
 {
     update_number_word(command,commandSize);
