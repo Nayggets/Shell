@@ -63,7 +63,7 @@ When running and executing a more complex command, such as "cat Makefile | grep 
 
 According to Valgrind memory check, the program does not have any memory leaks. All memory allocated in the heap is properly freed.
 
-## About Tools use in this project
+## About Tools used in this project
 
 + IDE : Visual studio code 
 + Debugger : gdb and Visual studio code Debugger (70/30)
