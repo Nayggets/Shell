@@ -14,5 +14,3 @@ int read_command(char* command)
     }
     return 0;
 }
-
-

@@ -2,6 +2,7 @@
 #define EXECUTOR_C
 
 #include "../process_parser/process/process.h"
+#include "../Navigation/Navigation.h"
 #include <unistd.h>
 #include <fcntl.h>
 #include <sys/types.h>

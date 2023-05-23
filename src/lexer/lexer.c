@@ -21,7 +21,6 @@ token_t** decomposed_command(char* com)
         return NULL;
     }
     token_t** all_token = malloc(sizeof(token_t*) * numberArgs +1);
-    printf("%i", numberArgs);
     int is_argument = 0;
     int already_a_symbol = 0;
     for(int i = 0 ; i < numberArgs ; i++){
@@ -106,7 +105,6 @@ void update_number_word(char* command,int commandSize)
             }
         }
     }
-    printf("%i",numberArgs);
     fflush(stdout);
 }
 

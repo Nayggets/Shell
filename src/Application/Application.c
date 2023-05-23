@@ -15,9 +15,6 @@ void run()
             display_user_credentials();
         }
         token_t** tokens = decomposed_command(buffer);
-        if(strcmp(tokens[0]->name,"cd") == 0){
-            
-        }
         if(tokens != NULL){
             int j = 0;
             while(tokens[j] != NULL){
@@ -25,6 +22,9 @@ void run()
             }
             fflush(stdout);
             Init_command_parser(tokens,j);
+            if(strcmp(tokens[0]->name,"exit") == 0){
+                return;
+            }   
             command_t** commands = parse_command();
             int i = 0;
             while(commands[i] != NULL){
@@ -77,7 +77,7 @@ void display_user_credentials()
     gethostname(machineName,128);
     getcwd(currentDirectory,1024);
     
-    printf("\033[1;32m%s@%s\033[0m:\033[1;34m%s\033[1;36m$",userName,machineName,currentDirectory);
+    printf("\033[1;32m%s@%s\033[0m:\033[1;34m%s\033[1;36m$ ",userName,machineName,currentDirectory);
     printf("\033[0m"); 
     fflush(stdout);//flush of stdout for better display display
 }

@@ -5,7 +5,15 @@ void launch_process(process_t** process,int nb)
 
     int pid[nb];
     int uniquePid = 0;
+    int check = 0;
     for(int i = 0 ; i < nb ; i++){
+        if(strcmp(process[i]->command->name,"cd") == 0){ // Change to if execvp fail check all the builtin function. line 33-36
+            pid[i] = -1;
+            navigate_to(process[i]->command->argument[1]);
+        }
+        else{
+
+        
         uniquePid = fork();
         
         if(uniquePid == 0){
@@ -20,14 +28,22 @@ void launch_process(process_t** process,int nb)
                 close(process[i]->pipefdInput);
 
             }
-            execvp(process[i]->command->name,process[i]->command->argument);
+        else{
+                check = execvp(process[i]->command->name,process[i]->command->argument);
+                //check builtin or error
+                if(check != 0){
+                    printf("%s : command not found",process[i]->command->name);
+                    exit(-1);
+                }
+            }
         }
         else{
             close(process[i]->pipefdInput);
             close(process[i]->pipefdOutput);
 
         }
-        pid[i] = uniquePid;
+            pid[i] = uniquePid;
+        }
     }
     
     for(int i = 0 ; i < nb ; i++){

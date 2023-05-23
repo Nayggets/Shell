@@ -11,7 +11,8 @@ SRC_FILES = src/lexer/*.c \
 			src/executor/*.c \
 			src/process_parser/process/*.c \
 			src/process_parser/*.c \
-			src/Application/*.c
+			src/Application/*.c \
+			src/Navigation/*.c
 			
 
 

@@ -11,6 +11,7 @@ Simple shell that can manage command execution, piping of commands, and backgrou
 First, the user inputs a command line. Next, the lexer tokenizes the raw command. After that, the command parser transforms all the tokens into different commands. The process parser then transforms the commands into processes that are ready to be executed with or without pipes. Finally, the executor launches all the processes.
 
 ## Main TODO:
+
 * [x] reader
 * [x] lexer
 * [x] command_parser
@@ -25,6 +26,64 @@ First, the user inputs a command line. Next, the lexer tokenizes the raw command
 * [x] Display all information for the user (current directory , User name, Machine name)
 * [ ] autoCompletion Command
 
+### bash-Builtin Function 
+
+* [x] cd
+* [] alias
+* [] bg
+* [] bind
+* [] break
+* [] builtin
+* [] case
+* [] command
+* [] compgen
+* [] complete
+* [] continue
+* [] declare
+* [] dirs
+* [] disown
+* [x] echo
+* [] enable
+* [] eval
+* [] exec
+* [x] exit
+* [] export
+* [] fc
+* [] fg
+* [] getopts
+* [] hash
+* [] help
+* [] history
+* [] if
+* [] jobs
+* [] kill
+* [] let
+* [] local
+* [] logout
+* [] popd
+* [] printf
+* [] pushd
+* [x] pwd
+* [] read  
+* [] readonly
+* [] return
+* [] set
+* [] shift
+* [] shopt
+* [] source
+* [] suspend
+* [] test
+* [] times
+* [] trap
+* [] type
+* [] typeset
+* [] ulimit
+* [] umask
+* [] unalias
+* [] unset
+* [] until
+* [] wait
+* [] while
 
 
 ## About complexity 
