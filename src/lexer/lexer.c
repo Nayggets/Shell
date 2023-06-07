@@ -4,7 +4,9 @@
 char** split_command_args(char* command,int commandSize);
 int numberArgs = 0;
 
-/*For error that can occur with background and pipe*/ 
+/*
+ * For error that can occur with background and pipe
+ */ 
 void lexer_error(token_t* token,int index, const char* msg, ...){
     va_list args;
     va_start(args,msg);
@@ -13,7 +15,9 @@ void lexer_error(token_t* token,int index, const char* msg, ...){
     exit(-1);
 }
 
-/*Take a command from the reader and Decompose it in multiple token with a type*/
+/*
+ * Take a command from the reader and Decompose it in multiple token with a type
+ */
 token_t** decomposed_command(char* com)
 {
     char** decomposed_arg = split_command_args(com,strlen(com)-1);
@@ -77,8 +81,9 @@ token_t** decomposed_command(char* com)
     return all_token;
 }
 
-/*update the number of word in the command 
- *also manage chain
+/*
+ * Update the number of word in the command 
+ * also manage chain
  */ 
 void update_number_word(char* command,int commandSize)
 {
@@ -109,8 +114,11 @@ void update_number_word(char* command,int commandSize)
 }
 
 
-/*Split the command line into multiple arg(char*)
- *also manage "" and ''
+/*
+ * Split the command line into multiple arg(char*)
+ * also manage "" and ''
+ * Exemple if i have in command : cat Makefile | grep 'e' | grep "rm"
+ * we obtain char* 1 = cat, char* 2 = Makefile, char* 3 = |, char* 4 = grep, char* 5 = e, char* 6 = |, char* 7 = grep and char* 8 = rm
  */
 char** split_command_args(char* command,int commandSize)
 {

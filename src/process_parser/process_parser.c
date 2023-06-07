@@ -15,7 +15,6 @@ process_t** parse_process(command_t** commands,int size)
 
 
         if(commands[i]->piped & PIPED_LEFT){
-            printf("%i Hello 2 \n",i);
             processes[i]->pipefdInput = pipefd[0];
             
         }
@@ -23,11 +22,8 @@ process_t** parse_process(command_t** commands,int size)
 
         if(commands[i]->piped & PIPED_RIGHT){
 
-            printf("%i Hello \n",i);
             fflush(stdout);
             check = pipe(pipefd);
-            printf("%i pipe 0 \n", pipefd[0]);
-            printf("%i pipe 1 \n", pipefd[1]);
 
             processes[i]->pipefdOutput = pipefd[1];
             if(check == 1){

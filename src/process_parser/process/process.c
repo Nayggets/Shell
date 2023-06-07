@@ -15,3 +15,14 @@ void free_process(process_t* process)
 {
     free(process);
 }
+
+
+void print_process(const process_t* process)
+{
+    print_command(process->command);
+
+    printf("pipedfd Input -----> %i",process->pipefdInput);
+    printf("pipedfd Output -----> %i",process->pipefdOutput);
+
+    fflush(stdout);
+}

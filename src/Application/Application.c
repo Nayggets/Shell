@@ -4,14 +4,16 @@ void display_user_credentials();
 void free_all(token_t** tokens, command_t** commands, process_t** processes);
 
 
-/*Simply run the terminal using all the component of the system */
+/*
+ * Simply run the terminal using all the component of the system 
+ */
 void run() 
 {
     char buffer[4096];
     while(1)
     {
         display_user_credentials();
-        while(read_command(buffer)){
+        while(read_line(buffer)){
             display_user_credentials();
         }
         token_t** tokens = decomposed_command(buffer);
@@ -34,6 +36,7 @@ void run()
             process_t** processes = parse_process(commands,i);
             launch_process(processes,i);
             fflush(stdout);
+            fflush(stdin);
             free_all(tokens,commands,processes);
         }
 

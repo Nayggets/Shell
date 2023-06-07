@@ -10,4 +10,5 @@ typedef struct process{
 
 process_t* create_process(command_t* _command);
 void free_process(process_t* process);
+void print_process(const process_t* process);
 #endif

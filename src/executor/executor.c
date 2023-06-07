@@ -1,8 +1,9 @@
 #include "executor.h"
-//Close and dup good entry for process and launch it bg or fg
+/*
+ * Close and dup good entry for process and launch it bg or fg
+ */
 void launch_process(process_t** process,int nb)
 {
-
     int pid[nb];
     int uniquePid = 0;
     int check = 0;
@@ -13,22 +14,18 @@ void launch_process(process_t** process,int nb)
         }
         else{
 
-        
-        uniquePid = fork();
-        
-        if(uniquePid == 0){
-            if(process[i]->pipefdOutput != -1){
-                close(process[i+1]->pipefdInput);
-                dup2(process[i]->pipefdOutput,1);
-                close(process[i]->pipefdOutput);
-            }
-            if(process[i]->pipefdInput != -1){
-                close(process[i-1]->pipefdOutput);
-                dup2(process[i]->pipefdInput,0);
-                close(process[i]->pipefdInput);
-
-            }
-        else{
+            uniquePid = fork();
+            if(uniquePid == 0){
+                if(process[i]->pipefdOutput != -1){
+                    close(process[i+1]->pipefdInput);
+                    dup2(process[i]->pipefdOutput,1);
+                    close(process[i]->pipefdOutput);
+                }
+                if(process[i]->pipefdInput != -1){
+                    close(process[i-1]->pipefdOutput);
+                    dup2(process[i]->pipefdInput,0);
+                    close(process[i]->pipefdInput);
+                }
                 check = execvp(process[i]->command->name,process[i]->command->argument);
                 //check builtin or error
                 if(check != 0){
@@ -36,12 +33,11 @@ void launch_process(process_t** process,int nb)
                     exit(-1);
                 }
             }
-        }
-        else{
-            close(process[i]->pipefdInput);
-            close(process[i]->pipefdOutput);
+            else{
+                close(process[i]->pipefdInput);
+                close(process[i]->pipefdOutput);
 
-        }
+            }
             pid[i] = uniquePid;
         }
     }
@@ -51,7 +47,8 @@ void launch_process(process_t** process,int nb)
             waitpid(pid[i],NULL,0);
         }
     }
-    
+    fflush(stdin);
+    fflush(stdout);
     
 }
 
