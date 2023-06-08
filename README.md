@@ -125,4 +125,6 @@ According to Valgrind memory check, the program does not have any memory leaks. 
 + Tools of Updating and Versionning : Git
 + Diagram : Excalidraw
 
-
+## Thanking
+### Thank you to Jérôme PALAYSI. professor at the IUT of Montpellier-Sète.
+for dedicating his time to testing the limits of the terminal and for identifying flaws in both the code and its usage. His assistance in structuring and improving for the terminal from a project management and programming perspective has been invaluable. Thanks you Jérôme.
