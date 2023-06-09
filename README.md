@@ -93,6 +93,9 @@ First, the user inputs a command line. Next, the lexer tokenizes the raw command
 + setup_process --> O(n)
 ### reader_section
 + read_command  --> O(n²)
++ initReader    --> O(n²)
++ freeReader    --> O(n)
++ load_history  --> O(6)
 ### command_section
 + Init_command_parser  --> O(2)
 + parse_command        --> O(2n)
@@ -110,7 +113,6 @@ First, the user inputs a command line. Next, the lexer tokenizes the raw command
 + free_token    --> O(1) 
 + free_process  --> O(n)
 + free_command  --> O(n)
-
 ## About memory
 When running and executing a simple command, such as "cat Makefile", the program employs approximately 20,034 bytes of memory through 40 allocations.
 When running and executing a more complex command, such as "cat Makefile | grep e | grep rm", the program employs approximately 20,243 bytes of memory through 70 allocations.

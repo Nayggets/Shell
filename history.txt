@@ -1,0 +1,12 @@
+ls
+ls | grep e
+cat Makefile | grep e | grep r | grep a
+cat Makefile &
+ls
+cd ../
+cat Makefile
+exit
+cat Makefile
+ls
+cd ../
+efile
