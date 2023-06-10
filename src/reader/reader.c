@@ -124,7 +124,7 @@ int load_history(int number,char* command)
  */
 int read_line(char* command)
 {
-    memset(command,0,4095);
+    memset(command,0,4096);
     init_term_io_settings();
     int index = 0;
     int maxSize = 0;
@@ -162,7 +162,6 @@ int read_line(char* command)
             case ENTER:
             {
                 endOfLine = 1;
-                command[index] = '\0';
                 printf("\n");
                 break;
             }
@@ -319,9 +318,11 @@ int read_line(char* command)
         command[maxSize] = '\n';
         write(fd,command,strlen(command));
     } 
-    
+    close(fd);
+
     command[maxSize] = '\0';
-    history[nbHistory] = malloc(strlen(command));
+    history[nbHistory] = malloc(sizeof(char) * strlen(command));
+    printf("strlen de la command %i",strlen(command));
     strcpy(history[nbHistory],command);
     nbHistory++;
     cursorHistory = nbHistory;

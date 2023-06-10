@@ -1,12 +1,9 @@
-ls
-ls | grep e
-cat Makefile | grep e | grep r | grep a
-cat Makefile &
-ls
-cd ../
-cat Makefile
-exit
-cat Makefile
-ls
-cd ../
-efile
+printf "cat Makefile | grep e "
+printf "cat Makefile | grep e | grep rmprintf "cat Makefile | grep e | grep rm"
+printf "cat Makefile | grep e | grep rm"
+printf "cat Makefile | grep e | grep rm | grep p"
+printf "cat Makefile | grep e | grep rm | grep pprintf "cat Makefile | grep e | grep rmprintf "cat Makefile | grep e | grep rm"
+printf "cat Makefile | grep e | grep rm | grep p"
+ Makefile | grep e | grep rm"printf "cat Makefile | grep e | grep rmprintf "cat Makefile | grep e | grep rm"
+printf "cat Makefile | grep e | grep rm"
+printf "cat Makefile | grep e | grep rm | grep a"

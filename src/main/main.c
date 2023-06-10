@@ -2,6 +2,6 @@
 int main(int argc, char* argv[])
 {
     initReader();
-    run();
+    run();s
     freeReader();
 }
