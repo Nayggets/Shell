@@ -39,12 +39,34 @@ void run()
             fflush(stdin);
             free_all(tokens,commands,processes);
         }
-
-
-        
     }
+}
 
-
+void run_inline(char* command)
+{
+    token_t** tokens = decomposed_command(command);
+    if(tokens != NULL){
+        int j = 0;
+        while(tokens[j] != NULL){
+            j++;
+        }
+        fflush(stdout);
+        Init_command_parser(tokens,j);
+        if(strcmp(tokens[0]->name,"exit") == 0){
+            return;
+        }   
+        command_t** commands = parse_command();
+        int i = 0;
+        while(commands[i] != NULL){
+            i++;
+        }
+        
+        process_t** processes = parse_process(commands,i);
+        launch_process(processes,i);
+        fflush(stdout);
+        fflush(stdin);
+        free_all(tokens,commands,processes);
+    }
 }
 
 /*Free all the memory allocated for the execution of the command line */

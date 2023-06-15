@@ -8,5 +8,5 @@
 #include "../lexer/token/token.h"
 #include <unistd.h>
 void run();
-
+void run_inline(char* command);
 #endif
