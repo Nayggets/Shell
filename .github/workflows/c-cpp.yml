@@ -17,3 +17,11 @@ jobs:
       run: make
       continue-on-error: false
 
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: test1
+      run: chmod +x ../../bashScript.sh  ../../bashScript.sh
+
+

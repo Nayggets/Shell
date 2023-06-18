@@ -7,3 +7,55 @@ printf "cat Makefile | grep e | grep rm | grep p"
  Makefile | grep e | grep rm"printf "cat Makefile | grep e | grep rmprintf "cat Makefile | grep e | grep rm"
 printf "cat Makefile | grep e | grep rm"
 printf "cat Makefile | grep e | grep rm | grep a"
+cat Makefile
+exit
+CXX = gcc
+cat Makefile
+cat Makefilen
+cat Makefile
+cat Makefilen
+cat Makefile 
+cat Makefile
+s
+exit
+CXX = gcc
+cat Makefile 
+cat Makefile
+exit
+CXX = gcc
+cat Makefile exit
+cat Makefile exit | ./shell.elf
+cat Makefile exit
+echo cat Makefile
+cat Makefile
+exit
+cat Makefile
+exit
+cat Makefile
+exit
+cat Makefile
+exit
+cat Makefile
+exit
+cat Makefile
+exit
+cat Makefile
+exit
+cat Makefile
+exit
+cat Makefile
+exit
+cat Makefile
+exit
+cat Makefile
+exit
+cat Makefile
+exit
+cat Makefile
+exit
+cat Makefile
+exit
+cat Makefile
+exit
+cat Makefile
+exit

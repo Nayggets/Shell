@@ -13,7 +13,7 @@ void run()
     while(1)
     {
         display_user_credentials();
-        while(read_command(buffer)){
+        while(read_line(buffer)){
             display_user_credentials();
         }
         token_t** tokens = decomposed_command(buffer);

@@ -129,13 +129,13 @@ char** split_command_args(char* command,int commandSize)
     printf("number args : %i\n",numberArgs);
     fflush(stdout);
     /* Updating number of word and allocate memory to store size of all arg and all arg*/
-    int* sizePerArg = malloc(sizeof(int) *  numberArgs + 1);
-    char** commandArgs = malloc(sizeof(char*) * numberArgs + 1);
+    int* sizePerArg = malloc(sizeof(int) *  numberArgs );
+    char** commandArgs = malloc(sizeof(char*) * numberArgs);
 
     int i = 0;
     int currentArg = 0;
     int sizeCommand = 0;
-    while(i-1 < commandSize){ // We will retrieve and store the necessary size for each char*.
+    while(i < commandSize){ // We will retrieve and store the necessary size for each char*.
         while(command[i] == ' ' && i-1 < commandSize){
             i++;
         }
@@ -159,13 +159,13 @@ char** split_command_args(char* command,int commandSize)
         sizeCommand = 0;
     }
     for(int i = 0 ; i < numberArgs ; i++){ //allocation of all char* with the size retrieve 
-        commandArgs[i] = malloc(sizeof(char) * sizePerArg[i] + 1);
+        commandArgs[i] = malloc(sizeof(char) * sizePerArg[i]);
     }
-
+    commandArgs[currentArg] = NULL;
     i = 0;
     sizeCommand = 0;
     currentArg = 0;
-    while(i-1 < commandSize){//We will retrieve each argument character by character to store them in their previously allocated char*.
+    while(i < commandSize){//We will retrieve each argument character by character to store them in their previously allocated char*.
         while(command[i] == ' ' && i-1 < commandSize){
             i++;
         }
