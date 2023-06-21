@@ -126,7 +126,6 @@ char** split_command_args(char* command,int commandSize)
     if(numberArgs == 0){
         return NULL;
     }
-    printf("number args : %i\n",numberArgs);
     fflush(stdout);
     /* Updating number of word and allocate memory to store size of all arg and all arg*/
     int* sizePerArg = malloc(sizeof(int) *  numberArgs + 1);

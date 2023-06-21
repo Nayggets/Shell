@@ -7,3 +7,10 @@ printf "cat Makefile | grep e | grep rm | grep p"
  Makefile | grep e | grep rm"printf "cat Makefile | grep e | grep rmprintf "cat Makefile | grep e | grep rm"
 printf "cat Makefile | grep e | grep rm"
 printf "cat Makefile | grep e | grep rm | grep a"
+exit
+f "cat Makefile | grep e | grep rm | grep a"printf "cat maekfile | grep e"
+printf "cat maekfile | grep e | grep p"
+printf "cat maekfile | grep e | grep p | grep o"
+printf "cat maekfile | grep e | grep p | grep o | grep r"
+printf "echo cat maekfile | grep e | grep p | grep o | grep r"
+exit

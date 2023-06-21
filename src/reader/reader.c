@@ -322,7 +322,6 @@ int read_line(char* command)
 
     command[maxSize] = '\0';
     history[nbHistory] = malloc(sizeof(char) * strlen(command));
-    printf("strlen de la command %i",strlen(command));
     strcpy(history[nbHistory],command);
     nbHistory++;
     cursorHistory = nbHistory;
