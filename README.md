@@ -27,8 +27,7 @@ First, the user inputs a command line. Next, the lexer tokenizes the raw command
 * [ ] Add a module to open a new windows like gnome-terminal
 * [x] Display all information for the user (current directory , User name, Machine name)
 * [ ] autoCompletion Command
-* [ ] Implement all builtin function
-
+* [ ] Builtin function all implemented
 
 ## About complexity 
 ### process_section
