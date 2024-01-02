@@ -29,8 +29,6 @@ First, the user inputs a command line. Next, the lexer tokenizes the raw command
 * [ ] autoCompletion Command
 * [ ] Builtin function all implemented
 
-
-
 ## About complexity 
 ### process_section
 + launch_process --> O(2n)
