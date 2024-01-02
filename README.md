@@ -27,64 +27,8 @@ First, the user inputs a command line. Next, the lexer tokenizes the raw command
 * [ ] Add a module to open a new windows like gnome-terminal
 * [x] Display all information for the user (current directory , User name, Machine name)
 * [ ] autoCompletion Command
+* [ ] Builtin function all implemented
 
-### bash-Builtin Function 
-* [x] cd
-* [ ] alias
-* [ ] bg
-* [ ] bind
-* [ ] break
-* [ ] builtin
-* [ ] case
-* [ ] command
-* [ ] compgen
-* [ ] complete
-* [ ] continue
-* [ ] declare
-* [ ] dirs
-* [ ] disown
-* [x] echo
-* [ ] enable
-* [ ] eval
-* [ ] exec
-* [x] exit
-* [ ] export
-* [ ] fc
-* [ ] fg
-* [ ] getopts
-* [ ] hash
-* [ ] help
-* [ ] history
-* [ ] if
-* [ ] jobs
-* [ ] kill
-* [ ] let
-* [ ] local
-* [ ] logout
-* [ ] popd
-* [ ] printf
-* [ ] pushd
-* [x] pwd
-* [ ] read  
-* [ ] readonly
-* [ ] return
-* [ ] set
-* [ ] shift
-* [ ] shopt
-* [ ] source
-* [ ] suspend
-* [ ] test
-* [ ] times
-* [ ] trap
-* [ ] type
-* [ ] typeset
-* [ ] ulimit
-* [ ] umask
-* [ ] unalias
-* [ ] unset
-* [ ] until
-* [ ] wait
-* [ ] while
 
 
 ## About complexity 
